@@ -35,7 +35,7 @@ export default async function FormationsPage({ searchParams }: { searchParams: {
   return (
     <>
       <section className="bg-[#1A1A2E] text-white py-16 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4">Nos Formations</h1>
+        <h1 className="text-4xl font-bold mb-4">Nos Cours</h1>
         <p className="text-gray-300 max-w-xl mx-auto">Choisissez parmi notre catalogue de formations adaptées à votre niveau et vos objectifs.</p>
       </section>
 

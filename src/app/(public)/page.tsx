@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { prisma } from '@/lib/prisma'
-import { BookOpen, Users, Award, TrendingUp, ArrowRight, Calendar, Tag, Quote, CheckCircle, GraduationCap, Mic, PenLine, Target, Eye, Heart, Mail, FileText, Headphones } from 'lucide-react'
+import { BookOpen, Users, Award, TrendingUp, ArrowRight, Calendar, Tag, Quote, CheckCircle, GraduationCap, Mic, PenLine, Target, Eye, Heart, Mail, FileText, Headphones, Star, Zap, Wifi, RotateCcw, Monitor, Package } from 'lucide-react'
 import Reveal from '@/components/Reveal'
 import CountUp from '@/components/CountUp'
 
@@ -34,7 +34,7 @@ function IconInstagram() {
 }
 
 const stats = [
-  { icon: Users, value: ' 50+', label: 'Apprenants formés' },
+  { icon: Users, value: ' 200+', label: 'Apprenants formés' },
   { icon: BookOpen, value: '12', label: 'Cours d\'allemand' },
   { icon: Award, value: '2+', label: 'Années d\'expérience' },
   { icon: TrendingUp, value: '97%', label: 'Taux de réussite' },
@@ -57,15 +57,15 @@ const competences = [
 ]
 
 const raisons = [
-  'Formateurs certifiés',
-  'Méthode communicative et immersive',
-  'Petits groupes (max. 12 apprenants)',
-  'Préparation aux certifications officielles (Goethe, TELC, ÖSD, ECL)',
-  'Cours en présentiel et en ligne',
-  'Matériel pédagogique inclus',
-  'Cadre d\'apprentissage convivial et motivant',
-  'Internet illimité',
-  'Cours de répétition gratuit'
+  { icon: Star,      label: 'Formateurs certifiés',       detail: 'Goethe-Institut' },
+  { icon: Zap,       label: 'Méthode immersive',            detail: 'Communicative & active' },
+  { icon: Users,     label: 'Petits groupes',               detail: 'Max. 12 apprenants' },
+  { icon: Award,     label: 'Certifications officielles',   detail: 'Goethe · TELC · ÖSD · ECL' },
+  { icon: Monitor,   label: 'Présentiel & en ligne',        detail: 'Flexible selon vous' },
+  { icon: Package,   label: 'Matériel inclus',              detail: 'Sans frais supplémentaires' },
+  { icon: Heart,     label: 'Cadre convivial',              detail: 'Apprentissage bienveillant' },
+  { icon: Wifi,      label: 'Internet illimité',            detail: 'Connexion incluse' },
+  { icon: RotateCcw, label: 'Répétition gratuite',          detail: 'Révision sans surcoût' },
 ]
 
 const temoignages = [
@@ -134,7 +134,7 @@ export default async function HomePage() {
               Apprenez l&apos;allemand avec <span className="text-[#5ECFCF]">Visum+Akademie</span>
             </h1>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              Du niveau A1 au C2, nos formateurs natifs vous accompagnent vers la maîtrise de la langue allemande. Préparez vos certifications Goethe, TELC et ÖSD avec confiance.
+              Du niveau A1 au C1, nos formateurs natifs vous accompagnent vers la maîtrise de la langue allemande. Préparez vos certifications Goethe, TELC et ÖSD avec confiance.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/formations" className="btn-primary">Offre de formations</Link>
@@ -268,17 +268,21 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <Reveal animation="fade-right">
             <h2 className="section-title">Pourquoi choisir Visum+ Akademie ?</h2>
-            <p className="text-gray-500 mb-8">
-              Nous ne nous contentons pas d&apos;enseigner l&apos;allemand &mdash; nous vous pr&eacute;parons &agrave; l&apos;utiliser dans la vraie vie, avec confiance et efficacit&eacute;.
+            <p className="text-gray-500 mb-6 text-sm">
+              Nous ne nous contentons pas d&apos;enseigner l&apos;allemand &mdash; nous vous préparons à l&apos;utiliser avec confiance dans la vraie vie.
             </p>
-            <ul className="space-y-3">
-              {raisons.map(r => (
-                <li key={r} className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-[#E8001C] mt-0.5 shrink-0" />
-                  <span className="text-gray-700">{r}</span>
-                </li>
+            <div className="grid grid-cols-1 gap-2.5">
+              {raisons.map(({ icon: Icon, label, detail }) => (
+                <div key={label} className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:border-[#E8001C]/30 transition-colors">
+                  <div className="w-8 h-8 bg-[#E8001C]/10 rounded-lg flex items-center justify-center shrink-0">
+                    <Icon size={15} className="text-[#E8001C]" />
+                  </div>
+                  <span className="font-semibold text-[#1A1A2E] text-sm flex-1">{label}</span>
+                  <span className="text-gray-400 text-xs hidden sm:block">{detail}</span>
+                  <CheckCircle size={14} className="text-green-500 shrink-0" />
+                </div>
               ))}
-            </ul>
+            </div>
             <Link href="/galerie" className="btn-primary inline-flex items-center gap-2 mt-8">
               D&eacute;couvrir notre centre <ArrowRight size={16} />
             </Link>

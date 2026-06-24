@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 }
 
 const avantages = [
-  { icon: Banknote, titre: 'Formation rémunérée', desc: "Vous percevez un salaire dès le premier jour de formation, entre 600 € et 1 200 € par mois selon le secteur et l'année.", color: 'bg-green-500' },
-  { icon: Award, titre: 'Diplôme reconnu internationalement', desc: "Le diplôme allemand (Berufsabschluss) est reconnu dans toute l'Union Européenne et dans de nombreux pays du monde.", color: 'bg-blue-500' },
-  { icon: Home, titre: 'Résidence permanente', desc: 'Après 2 ans de travail post-formation, vous pouvez obtenir un titre de séjour permanent en Allemagne.', color: 'bg-purple-500' },
-  { icon: Shield, titre: 'Protection sociale complète', desc: 'Assurance maladie, retraite, chômage — vous bénéficiez de toute la protection sociale allemande dès le début.', color: 'bg-orange-500' },
-  { icon: Plane, titre: 'Visa de travail facilité', desc: "L'Allemagne délivre des visas spéciaux pour les candidats à l'Ausbildung. Visum Akademie vous accompagne dans les démarches.", color: 'bg-[#5ECFCF]' },
-  { icon: Star, titre: 'Évolution de carrière rapide', desc: "Après votre Ausbildung, vous pouvez évoluer vers un poste de Meister (maître artisan) ou poursuivre des études supérieures.", color: 'bg-[#E8001C]' },
+  { icon: Banknote, titre: 'Formation rémunérée',            valeur: '600 – 1 200 €/mois',  color: 'bg-green-500' },
+  { icon: Award,    titre: 'Diplôme reconnu UE',             valeur: 'Berufsabschluss',     color: 'bg-blue-500' },
+  { icon: Home,     titre: 'Résidence permanente',           valeur: 'Après 2 ans',          color: 'bg-purple-500' },
+  { icon: Shield,   titre: 'Protection sociale',             valeur: 'Complète dès J+1',     color: 'bg-orange-500' },
+  { icon: Plane,    titre: 'Visa facilité',                  valeur: 'Visa Ausbildung',      color: 'bg-[#5ECFCF]' },
+  { icon: Star,     titre: 'Évolution rapide',               valeur: 'Meister · Études sup.', color: 'bg-[#E8001C]' },
 ]
 
 const formations = [
@@ -100,26 +100,44 @@ const formations = [
 
 const criteres = [
   {
-    icon: GraduationCap, titre: 'Niveau scolaire',
-    items: ['Baccalauréat ou équivalent (minimum)', 'BEP / CAP accepté pour certains métiers techniques', 'Diplôme universitaire (Licence) pour les filières santé avancées'],
+    icon: GraduationCap, titre: 'Niveau scolaire', color: 'bg-blue-500',
+    items: [
+      { label: 'Baccalauréat', note: 'minimum' },
+      { label: 'BEP / CAP', note: 'certains métiers techniques' },
+      { label: 'Licence', note: 'filières santé avancées' },
+    ],
   },
   {
-    icon: BookOpen, titre: "Niveau d'allemand",
-    items: ['B1 minimum requis pour la plupart des formations', 'B2 recommandé pour les filières santé et social', 'A2 accepté pour certains postes techniques avec formation linguistique intégrée', 'Certification Goethe, TELC ou ÖSD exigée'],
+    icon: BookOpen, titre: "Niveau d'allemand", color: 'bg-[#E8001C]',
+    items: [
+      { label: 'B1 minimum', note: 'pour la plupart des formations' },
+      { label: 'B2 recommandé', note: 'santé & social' },
+      { label: 'Certification', note: 'Goethe · TELC · ÖSD exigée' },
+    ],
   },
   {
-    icon: FileText, titre: 'Documents requis',
-    items: ['Passeport valide (minimum 2 ans)', 'Diplômes traduits et apostillés', 'Casier judiciaire vierge', "Certificat médical d'aptitude", 'Lettre de motivation en allemand', 'CV en format Europass (en allemand)'],
+    icon: FileText, titre: 'Documents requis', color: 'bg-orange-500',
+    items: [
+      { label: 'Passeport valide', note: '2 ans minimum' },
+      { label: 'Diplômes traduits', note: 'apostillés' },
+      { label: 'CV Europass', note: 'en allemand' },
+      { label: 'Casier judiciaire', note: 'vierge' },
+    ],
   },
   {
-    icon: Users, titre: 'Critères personnels',
-    items: ['Âge : 18 à 35 ans (selon les employeurs)', 'Bonne condition physique (surtout pour la santé)', 'Motivation et sérieux démontrables', "Capacité d'adaptation culturelle"],
+    icon: Users, titre: 'Profil personnel', color: 'bg-purple-500',
+    items: [
+      { label: 'Âge', note: '18 à 35 ans' },
+      { label: 'Condition physique', note: 'santé obligatoire' },
+      { label: 'Motivation', note: 'démontrable' },
+      { label: 'Adaptabilité', note: 'culturelle' },
+    ],
   },
 ]
 
 const etapes = [
   { num: '01', titre: "Apprendre l'allemand", desc: 'Atteindre le niveau B1/B2 avec Visum Akademie. Durée : 6 à 18 mois selon votre point de départ.', color: 'bg-[#E8001C]' },
-  { num: '02', titre: 'Obtenir la certification', desc: "Passer et réussir l'examen Goethe-Zertifikat ou TELC pour valider officiellement votre niveau.", color: 'bg-orange-500' },
+  { num: '02', titre: 'Obtenir la certification', desc: "Passer et réussir l'examen Goethe-Zertifikat, TELC, Ösd, ECL ou Telc pour valider officiellement votre niveau.", color: 'bg-orange-500' },
   { num: '03', titre: 'Préparer le dossier', desc: 'Rassembler et faire traduire tous vos documents. Visum Akademie vous accompagne dans cette étape.', color: 'bg-blue-500' },
   { num: '04', titre: 'Trouver un employeur', desc: "Postuler auprès d'entreprises allemandes. Nous vous mettons en relation avec nos partenaires.", color: 'bg-purple-500' },
   { num: '05', titre: 'Obtenir le visa', desc: "Déposer votre demande de visa Ausbildung à l'ambassade d'Allemagne. Délai : 4 à 8 semaines.", color: 'bg-teal-500' },
@@ -168,14 +186,16 @@ export default function FormationsProfessionnellesPage() {
               <p className="section-subtitle">Un système unique au monde qui combine travail, formation et rémunération dès le premier jour.</p>
             </div>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {avantages.map(({ icon: Icon, titre, desc, color }, i) => (
-              <Reveal key={titre} animation="fade-up" delay={i * 80} className="border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-shadow">
-                <div className={`${color} w-12 h-12 rounded-xl flex items-center justify-center mb-5`}>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {avantages.map(({ icon: Icon, titre, valeur, color }, i) => (
+              <Reveal key={titre} animation="fade-up" delay={i * 80} className="border border-gray-100 rounded-2xl p-5 hover:shadow-lg transition-shadow flex items-center gap-4">
+                <div className={`${color} w-12 h-12 rounded-xl flex items-center justify-center shrink-0`}>
                   <Icon size={22} className="text-white" />
                 </div>
-                <h3 className="font-bold text-[#1A1A2E] text-lg mb-2">{titre}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                <div>
+                  <h3 className="font-bold text-[#1A1A2E] text-sm">{titre}</h3>
+                  <p className="text-gray-400 text-xs mt-0.5">{valeur}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -229,22 +249,26 @@ export default function FormationsProfessionnellesPage() {
               <p className="section-subtitle">Voici les conditions générales pour accéder à une formation professionnelle en Allemagne. Certains critères varient selon le secteur.</p>
             </div>
           </Reveal>
-          <div className="grid md:grid-cols-2 gap-6 mb-10">
-            {criteres.map(({ icon: Icon, titre, items }, i) => (
-              <Reveal key={titre} animation="fade-up" delay={i * 100} className="bg-[#F5F5F5] rounded-2xl p-6">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 bg-[#E8001C]/10 rounded-xl flex items-center justify-center">
-                    <Icon size={20} className="text-[#E8001C]" />
+          <div className="grid md:grid-cols-2 gap-4 mb-10">
+            {criteres.map(({ icon: Icon, titre, color, items }, i) => (
+              <Reveal key={titre} animation="fade-up" delay={i * 100} className="bg-[#F5F5F5] rounded-2xl p-5">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`${color} w-9 h-9 rounded-lg flex items-center justify-center shrink-0`}>
+                    <Icon size={17} className="text-white" />
                   </div>
                   <h3 className="font-bold text-[#1A1A2E]">{titre}</h3>
                 </div>
-                <ul className="space-y-2">
+                <div className="grid grid-cols-2 gap-2">
                   {items.map(item => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                      <CheckCircle size={15} className="text-green-500 mt-0.5 shrink-0" />{item}
-                    </li>
+                    <div key={item.label} className="bg-white rounded-xl px-3 py-2 flex items-center gap-2">
+                      <CheckCircle size={13} className="text-green-500 shrink-0" />
+                      <div>
+                        <span className="text-xs font-semibold text-[#1A1A2E]">{item.label}</span>
+                        <span className="text-gray-400 text-xs block leading-tight">{item.note}</span>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -267,23 +291,31 @@ export default function FormationsProfessionnellesPage() {
 
       {/* ── PARCOURS EN 6 ÉTAPES ── */}
       <section className="py-20 bg-[#1A1A2E] text-white">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-4">
           <Reveal animation="fade-up">
             <div className="text-center mb-14">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Votre parcours en 6 étapes</h2>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                De l&apos;apprentissage de l&apos;allemand à votre premier jour en entreprise en Allemagne — Visum Akademie vous accompagne à chaque étape.
+                De l&apos;apprentissage de l&apos;allemand à votre premier jour en entreprise en Allemagne.
               </p>
             </div>
           </Reveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {etapes.map(({ num, titre, desc, color }, i) => (
-              <Reveal key={num} animation="fade-up" delay={i * 80} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
-                <div className={`${color} w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-lg mb-4`}>{num}</div>
-                <h3 className="font-bold text-white text-lg mb-2">{titre}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
-              </Reveal>
-            ))}
+          {/* Timeline verticale */}
+          <div className="relative">
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-white/10" />
+            <div className="space-y-0">
+              {etapes.map(({ num, titre, desc, color }, i) => (
+                <Reveal key={num} animation="fade-left" delay={i * 80}>
+                  <div className="relative flex gap-6 pb-8 last:pb-0">
+                    <div className={`${color} w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-base shrink-0 z-10 relative`}>{num}</div>
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex-1 hover:bg-white/10 transition-colors">
+                      <h3 className="font-bold text-white mb-1">{titre}</h3>
+                      <p className="text-gray-400 text-sm">{desc}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
