@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import { useState, useCallback } from 'react'
-import { Trash2, Loader2 } from 'lucide-react'
+import { Trash2 } from 'lucide-react'
 import ConfirmModal from '@/components/ConfirmModal'
 import Toast, { ToastData } from '@/components/Toast'
 
