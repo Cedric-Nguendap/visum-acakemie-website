@@ -13,6 +13,7 @@ export default async function AdminDashboardPage() {
 
   const dernieresAnnonces = await prisma.annonce.findMany({ take: 5, orderBy: { createdAt: 'desc' } })
   const derniersMessages = await prisma.message.findMany({ take: 5, orderBy: { createdAt: 'desc' } })
+  const dernieresInscriptions = await prisma.inscription.findMany({ take: 5, orderBy: { createdAt: 'desc' } })
 
   const stats = [
     { icon: Bell, label: 'Annonces', value: annonces, href: '/admin/annonces', color: 'bg-blue-500' },
@@ -46,25 +47,46 @@ export default async function AdminDashboardPage() {
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         <div className="bg-white rounded-xl shadow-sm p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-bold text-[#1A1A2E]">Dernières annonces</h2>
+            <h2 className="font-bold text-[#1A1A2E]">Dernieres annonces</h2>
             <Link href="/admin/annonces" className="text-[#E8001C] text-sm flex items-center gap-1">Voir tout <ArrowRight size={14} /></Link>
           </div>
           <div className="space-y-3">
             {dernieresAnnonces.map(a => (
               <div key={a.id} className="flex items-center justify-between py-2 border-b last:border-0">
                 <div>
-                  <p className="text-sm font-medium text-[#1A1A2E] truncate max-w-[200px]">{a.titre}</p>
+                  <p className="text-sm font-medium text-[#1A1A2E] truncate max-w-[160px]">{a.titre}</p>
                   <p className="text-xs text-gray-400">{new Date(a.createdAt).toLocaleDateString('fr-FR')}</p>
                 </div>
                 <span className={`badge text-xs ${a.statut === 'PUBLIE' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
-                  {a.statut}
+                  {a.statut === 'PUBLIE' ? 'Publie' : 'Brouillon'}
                 </span>
               </div>
             ))}
             {dernieresAnnonces.length === 0 && <p className="text-gray-400 text-sm">Aucune annonce</p>}
+          </div>
+        </div>
+
+        <div className="bg-white rounded-xl shadow-sm p-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="font-bold text-[#1A1A2E]">Dernieres inscriptions</h2>
+            <Link href="/admin/inscriptions" className="text-[#E8001C] text-sm flex items-center gap-1">Voir tout <ArrowRight size={14} /></Link>
+          </div>
+          <div className="space-y-3">
+            {dernieresInscriptions.map(i => (
+              <Link key={i.id} href={`/admin/inscriptions/${i.id}`} className="flex items-center justify-between py-2 border-b last:border-0 hover:bg-gray-50 -mx-2 px-2 rounded transition-colors">
+                <div>
+                  <p className="text-sm font-medium text-[#1A1A2E]">{i.prenom} {i.nom}</p>
+                  <p className="text-xs text-gray-400 truncate max-w-[160px]">{i.formation}</p>
+                </div>
+                <span className={`badge text-xs ${i.traite ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
+                  {i.traite ? 'Traite' : 'En attente'}
+                </span>
+              </Link>
+            ))}
+            {dernieresInscriptions.length === 0 && <p className="text-gray-400 text-sm">Aucune inscription</p>}
           </div>
         </div>
 
@@ -78,9 +100,9 @@ export default async function AdminDashboardPage() {
               <div key={m.id} className="flex items-center justify-between py-2 border-b last:border-0">
                 <div>
                   <p className="text-sm font-medium text-[#1A1A2E]">{m.nom}</p>
-                  <p className="text-xs text-gray-400 truncate max-w-[200px]">{m.sujet}</p>
+                  <p className="text-xs text-gray-400 truncate max-w-[160px]">{m.sujet}</p>
                 </div>
-                {!m.lu && <span className="w-2 h-2 bg-[#E8001C] rounded-full" />}
+                {!m.lu && <span className="w-2 h-2 bg-[#E8001C] rounded-full shrink-0" />}
               </div>
             ))}
             {derniersMessages.length === 0 && <p className="text-gray-400 text-sm">Aucun message</p>}

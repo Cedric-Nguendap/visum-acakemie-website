@@ -27,6 +27,7 @@ export default async function EditFormationPage({ params }: { params: { id: stri
           formateur: formation.formateur,
           duree: formation.duree,
           prix: formation.prix,
+          image: formation.image ?? '',
           publie: formation.publie,
         }}
       />

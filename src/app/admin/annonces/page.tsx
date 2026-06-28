@@ -48,9 +48,15 @@ export default async function AdminAnnoncesPage() {
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center justify-end gap-2">
-                    <Link href={`/annonces/${a.slug}`} target="_blank" className="p-2 text-gray-400 hover:text-[#5ECFCF] transition-colors" title="Voir">
-                      <Eye size={16} />
-                    </Link>
+                    {a.statut === 'PUBLIE' ? (
+                      <Link href={`/annonces/${a.slug}`} target="_blank" className="p-2 text-gray-400 hover:text-[#5ECFCF] transition-colors" title="Voir en ligne">
+                        <Eye size={16} />
+                      </Link>
+                    ) : (
+                      <span className="p-2 text-gray-200 cursor-not-allowed" title="Brouillon - non visible en ligne">
+                        <Eye size={16} />
+                      </span>
+                    )}
                     <Link href={`/admin/annonces/${a.id}`} className="p-2 text-gray-400 hover:text-[#E8001C] transition-colors" title="Modifier">
                       <Pencil size={16} />
                     </Link>

@@ -22,6 +22,7 @@ export default async function EditAnnoncePage({ params }: { params: { id: string
           contenu: annonce.contenu,
           categorie: annonce.categorie,
           statut: annonce.statut,
+          image: annonce.image ?? '',
         }}
       />
     </div>

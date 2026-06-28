@@ -1,27 +1,36 @@
 import { prisma } from '@/lib/prisma'
 import { Building2, Mail, MailOpen } from 'lucide-react'
+import Link from 'next/link'
 import DeleteRecruteurButton from './DeleteButton'
 import MarkRecruteurLuButton from './MarkLuButton'
 
-export default async function AdminRecruteursPage() {
-  const recruteurs = await prisma.recruteur.findMany({ orderBy: { createdAt: 'desc' } })
-  const nonLus = recruteurs.filter(r => !r.lu).length
+export default async function AdminRecruteursPage({ searchParams }: { searchParams: { statut?: string } }) {
+  const { statut } = searchParams
+
+  const recruteurs = await prisma.recruteur.findMany({
+    where: statut === 'non-lu' ? { lu: false } : statut === 'lu' ? { lu: true } : {},
+    orderBy: { createdAt: 'desc' },
+  })
+
+  const total = await prisma.recruteur.count()
+  const nonLus = await prisma.recruteur.count({ where: { lu: false } })
+  const lus = await prisma.recruteur.count({ where: { lu: true } })
 
   return (
     <div>
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-[#1A1A2E]">Demandes Recruteurs</h1>
-        <p className="text-gray-500 text-sm">{nonLus} demande(s) non lue(s) sur {recruteurs.length}</p>
+        <p className="text-gray-500 text-sm">{nonLus} demande(s) non lue(s) sur {total}</p>
       </div>
 
-      {/* Stats */}
+      {/* Stats cliquables */}
       <div className="grid grid-cols-3 gap-4 mb-8">
         {[
-          { label: 'Total', value: recruteurs.length, color: 'bg-blue-500' },
-          { label: 'Non lues', value: nonLus, color: 'bg-[#E8001C]' },
-          { label: 'Traitées', value: recruteurs.length - nonLus, color: 'bg-green-500' },
+          { label: 'Total', value: total, color: 'bg-blue-500', href: '/admin/recruteurs' },
+          { label: 'Non lues', value: nonLus, color: 'bg-[#E8001C]', href: '/admin/recruteurs?statut=non-lu' },
+          { label: 'Lues', value: lus, color: 'bg-green-500', href: '/admin/recruteurs?statut=lu' },
         ].map(s => (
-          <div key={s.label} className="bg-white rounded-xl p-5 shadow-sm flex items-center gap-4">
+          <Link key={s.label} href={s.href} className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex items-center gap-4">
             <div className={`${s.color} w-10 h-10 rounded-lg flex items-center justify-center shrink-0`}>
               <Building2 size={18} className="text-white" />
             </div>
@@ -29,7 +38,24 @@ export default async function AdminRecruteursPage() {
               <div className="text-2xl font-bold text-[#1A1A2E]">{s.value}</div>
               <div className="text-gray-500 text-xs">{s.label}</div>
             </div>
-          </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* Filtres */}
+      <div className="flex gap-2 mb-6">
+        {[
+          { label: 'Toutes', href: '/admin/recruteurs' },
+          { label: 'Non lues', href: '/admin/recruteurs?statut=non-lu' },
+          { label: 'Lues', href: '/admin/recruteurs?statut=lu' },
+        ].map(f => (
+          <Link key={f.label} href={f.href}
+            className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors
+              ${(f.href === '/admin/recruteurs' && !statut) || f.href.includes(statut ?? '__')
+                ? 'bg-[#E8001C] text-white border-[#E8001C]'
+                : 'bg-white text-gray-600 border-gray-300 hover:border-[#E8001C]'}`}>
+            {f.label}
+          </Link>
         ))}
       </div>
 
@@ -54,17 +80,20 @@ export default async function AdminRecruteursPage() {
                       {new Date(r.createdAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
                     </span>
                   </div>
-                  <p className="text-gray-500 text-sm leading-relaxed mt-2 whitespace-pre-line">{r.message}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed mt-2 line-clamp-3 whitespace-pre-line">{r.message}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-1 shrink-0">
-                {!r.lu && <MarkRecruteurLuButton id={r.id} />}
+                <MarkRecruteurLuButton id={r.id} />
+                <Link href={`/admin/recruteurs/${r.id}`} className="px-3 py-1.5 text-xs font-medium bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors">
+                  Voir
+                </Link>
                 <a
                   href={`mailto:${r.email}?subject=Re: Votre demande de recrutement — Visum+ Akademie`}
                   className="px-3 py-1.5 text-xs font-medium bg-[#E8001C]/10 text-[#E8001C] rounded-lg hover:bg-[#E8001C] hover:text-white transition-colors"
                 >
-                  Répondre
+                  Repondre
                 </a>
                 <DeleteRecruteurButton id={r.id} />
               </div>
@@ -75,7 +104,7 @@ export default async function AdminRecruteursPage() {
         {recruteurs.length === 0 && (
           <div className="text-center py-20 text-gray-400 bg-white rounded-xl">
             <Building2 size={48} className="mx-auto mb-4 opacity-20" />
-            <p>Aucune demande de recruteur reçue</p>
+            <p>Aucune demande{statut ? ' dans cette categorie' : ''}</p>
           </div>
         )}
       </div>

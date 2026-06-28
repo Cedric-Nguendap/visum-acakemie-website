@@ -1,7 +1,7 @@
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import NextImage from 'next/image'
-import { Plus, Pencil, Eye, Image as ImageIcon, Play } from 'lucide-react'
+import { Plus, Pencil, Eye, Image as ImageIcon, Play, Camera, Video } from 'lucide-react'
 import DeleteMediaButton from './DeleteButton'
 
 const catLabels: Record<string, string> = {
@@ -62,8 +62,9 @@ export default async function AdminGaleriePage() {
                 )}
                 {/* Badges */}
                 <div className="absolute top-2 left-2 flex gap-1">
-                  <span className={`badge text-xs ${m.type === 'PHOTO' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700'}`}>
-                    {m.type === 'PHOTO' ? '📷' : '▶'} {m.type}
+                  <span className={`badge text-xs inline-flex items-center gap-1 ${m.type === 'PHOTO' ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700'}`}>
+                    {m.type === 'PHOTO' ? <Camera size={10} /> : <Video size={10} />}
+                    {m.type === 'PHOTO' ? 'Photo' : 'Video'}
                   </span>
                 </div>
                 {!m.publie && (

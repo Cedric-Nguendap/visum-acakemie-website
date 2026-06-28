@@ -96,7 +96,7 @@ export default async function AdminInscriptionsPage({ searchParams }: { searchPa
                     <Link href={`/admin/inscriptions/${i.id}`} className="p-2 text-gray-400 hover:text-[#5ECFCF] transition-colors" title="Voir détails">
                       <Eye size={16} />
                     </Link>
-                    {!i.traite && <MarkTraiteButton id={i.id} />}
+                    <MarkTraiteButton id={i.id} traite={i.traite} />
                     <DeleteInscriptionButton id={i.id} />
                   </div>
                 </td>

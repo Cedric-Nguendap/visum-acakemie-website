@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Calendar, Tag, ArrowLeft } from 'lucide-react'
 import type { Metadata } from 'next'
 
@@ -46,6 +47,13 @@ export default async function AnnonceDetailPage({ params }: Props) {
       </div>
 
       <h1 className="text-3xl md:text-4xl font-bold text-[#1A1A2E] mb-6">{annonce.titre}</h1>
+
+      {annonce.image && (
+        <div className="relative h-64 rounded-2xl overflow-hidden mb-6">
+          <Image src={annonce.image} alt={annonce.titre} fill className="object-cover" unoptimized />
+        </div>
+      )}
+
       <p className="text-gray-500 text-lg mb-8 italic border-l-4 border-[#E8001C] pl-4">{annonce.extrait}</p>
 
       <div className="prose prose-lg max-w-none text-gray-700 whitespace-pre-line leading-relaxed mb-12">

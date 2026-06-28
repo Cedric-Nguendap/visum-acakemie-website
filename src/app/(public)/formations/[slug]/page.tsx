@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Clock, User, CheckCircle, ArrowLeft, BookOpen } from 'lucide-react'
 import type { Metadata } from 'next'
 
@@ -31,6 +32,11 @@ export default async function FormationDetailPage({ params }: Props) {
 
       <div className="grid md:grid-cols-3 gap-10">
         <div className="md:col-span-2">
+          {formation.image && (
+            <div className="relative h-56 rounded-2xl overflow-hidden mb-6">
+              <Image src={formation.image} alt={formation.titre} fill className="object-cover" unoptimized />
+            </div>
+          )}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className={`badge ${niveauColors[formation.niveau] || 'bg-gray-100 text-gray-700'}`}>{formation.niveau}</span>
             <span className="badge bg-[#5ECFCF]/20 text-[#0a9a9a]">{formation.domaine}</span>

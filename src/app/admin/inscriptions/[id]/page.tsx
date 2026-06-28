@@ -67,18 +67,13 @@ export default async function InscriptionDetailPage({ params }: { params: { id: 
         )}
       </div>
 
-      <div className="flex items-center gap-3">
-        {!inscription.traite && (
-          <div className="flex items-center gap-2 bg-white rounded-xl shadow-sm px-5 py-3">
-            <MarkTraiteButton id={inscription.id} />
-            <span className="text-sm text-gray-600">Marquer comme traité</span>
-          </div>
-        )}
-        <div className="flex items-center gap-2 bg-white rounded-xl shadow-sm px-5 py-3">
-          <DeleteInscriptionButton id={inscription.id} />
-          <span className="text-sm text-gray-600">Supprimer cette inscription</span>
-        </div>
-        <a href={`mailto:${inscription.email}`} className="btn-primary text-sm inline-flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-3 mt-2">
+        <MarkTraiteButton id={inscription.id} traite={inscription.traite} full />
+        <DeleteInscriptionButton id={inscription.id} redirectAfter="/admin/inscriptions" full />
+        <a
+          href={`mailto:${inscription.email}`}
+          className="btn-primary text-sm inline-flex items-center gap-2"
+        >
           <Mail size={15} />Contacter par email
         </a>
       </div>

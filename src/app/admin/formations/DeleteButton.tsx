@@ -1,19 +1,52 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import { useState, useCallback } from 'react'
 import { Trash2 } from 'lucide-react'
+import ConfirmModal from '@/components/ConfirmModal'
+import Toast, { ToastData } from '@/components/Toast'
 
-export default function DeleteFormationButton({ id }: { id: string }) {
+export default function DeleteFormationButton({ id, redirectAfter }: { id: string; redirectAfter?: string }) {
   const router = useRouter()
+  const [open, setOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [toast, setToast] = useState<ToastData | null>(null)
+  const closeToast = useCallback(() => setToast(null), [])
 
-  async function handleDelete() {
-    if (!confirm('Supprimer cette formation ?')) return
-    await fetch(`/api/admin/formations/${id}`, { method: 'DELETE' })
-    router.refresh()
+  async function handleConfirm() {
+    setLoading(true)
+    const res = await fetch(`/api/admin/formations/${id}`, { method: 'DELETE' })
+    setLoading(false)
+    setOpen(false)
+    if (res.ok) {
+      setToast({ type: 'success', message: 'Formation supprimee.' })
+      setTimeout(() => {
+        if (redirectAfter) router.push(redirectAfter)
+        else router.refresh()
+      }, 1000)
+    } else {
+      setToast({ type: 'error', message: 'Erreur lors de la suppression.' })
+    }
   }
 
   return (
-    <button onClick={handleDelete} className="p-2 text-gray-400 hover:text-red-600 transition-colors">
-      <Trash2 size={16} />
-    </button>
+    <>
+      {toast && <Toast {...toast} onClose={closeToast} />}
+      <ConfirmModal
+        open={open}
+        title="Supprimer la formation"
+        message="Cette action est irreversible. La formation sera definitivement supprimee."
+        confirmLabel="Supprimer"
+        loading={loading}
+        onConfirm={handleConfirm}
+        onCancel={() => setOpen(false)}
+      />
+      <button
+        onClick={() => setOpen(true)}
+        className="p-2 text-gray-400 hover:text-red-600 transition-colors"
+        title="Supprimer"
+      >
+        <Trash2 size={16} />
+      </button>
+    </>
   )
 }

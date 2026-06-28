@@ -100,7 +100,7 @@ const equipe = [
     linkedin: '#', facebook: '#', instagram: '#', tiktok: 'https://www.tiktok.com/@visum.akademie', email: 'boris@visumplusakademie.com',
   },
   {
-    nom: 'Melissa Kouamé',
+    nom: 'Datang Nwandji Mélissa',
     titre: 'Co-Fondatrice & Responsable Immigration',
     role: 'Immigration & Études',
     bio: 'Spécialiste des dossiers d\'immigration pour les études, Melissa accompagne chaque apprenant dans ses démarches administratives et l\'obtention de visa étudiant.',
@@ -108,7 +108,7 @@ const equipe = [
     linkedin: '#', facebook: '#', instagram: '#', tiktok: null, email: 'contact@visumplusakademie.com',
   },
   {
-    nom: 'Gabin Kouamen',
+    nom: 'Tchatchoua Nwandji Gabin',
     titre: 'Co-Fondateur & Responsable Mobilité Internationale',
     role: 'Mobilité & Coopération',
     bio: 'Gabin pilote les partenariats internationaux et la coopération avec les entreprises et institutions allemandes, facilitant l\'accès à l\'Ausbildung pour nos apprenants.',
