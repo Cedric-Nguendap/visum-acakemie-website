@@ -42,8 +42,8 @@ export default function NiveauxPage() {
   return (
     <>
       <section className="bg-[#1A1A2E] text-white py-16 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4">Nos Niveaux de Formation</h1>
-        <p className="text-gray-300 max-w-xl mx-auto">Du débutant complet au certifié C1 — un parcours progressif conforme au Cadre Européen Commun de Référence (CECR).</p>
+        <h1 className="text-4xl font-bold mb-3">Niveaux de Formation</h1>
+        <p className="text-gray-400 max-w-lg mx-auto text-sm">A1 → C1 · Conforme au CECR · Du débutant au certifié</p>
       </section>
 
       {/* ── BARRE DE PROGRESSION CECR ── */}

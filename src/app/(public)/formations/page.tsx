@@ -35,8 +35,8 @@ export default async function FormationsPage({ searchParams }: { searchParams: {
   return (
     <>
       <section className="bg-[#1A1A2E] text-white py-16 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4">Nos Cours</h1>
-        <p className="text-gray-300 max-w-xl mx-auto">Choisissez parmi notre catalogue de formations adaptées à votre niveau et vos objectifs.</p>
+        <h1 className="text-4xl font-bold mb-3">Nos Cours d&apos;allemand</h1>
+        <p className="text-gray-400 max-w-lg mx-auto text-sm">A1 → C1 · Présentiel & en ligne · Certifications Goethe, TELC, ÖSD</p>
       </section>
 
       <section className="py-10 bg-[#F5F5F5]">

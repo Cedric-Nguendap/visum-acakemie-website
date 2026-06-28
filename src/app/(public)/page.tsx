@@ -33,6 +33,14 @@ function IconInstagram() {
   )
 }
 
+function IconTikTok() {
+  return (
+    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
+    </svg>
+  )
+}
+
 const stats = [
   { icon: Users, value: ' 200+', label: 'Apprenants formés' },
   { icon: BookOpen, value: '12', label: 'Cours d\'allemand' },
@@ -87,34 +95,49 @@ const equipe = [
     nom: 'Boris Kouamen Nwandji',
     titre: 'Co-Fondateur & CEO',
     role: 'Direction',
-    bio: 'Passionné de langue allemande et d\'entrepreneuriat, Boris a fondé Visum+ Akademie avec la conviction que l\'allemand est un vecteur d\'opportunités exceptionnelles pour la jeunesse africaine.',
-    photo: null,
-    linkedin: '#',
-    facebook: '#',
-    instagram: '#',
-    email: 'boris@visumplusakademie.com',
+    bio: 'Visionnaire et entrepreneur, Boris a fondé Visum+ Akademie avec la conviction que l\'allemand est un vecteur d\'opportunités exceptionnelles pour la jeunesse africaine.',
+    photo: '/teams/Boris%20Kouamen.jpg',
+    linkedin: '#', facebook: '#', instagram: '#', tiktok: 'https://www.tiktok.com/@visum.akademie', email: 'boris@visumplusakademie.com',
   },
   {
-    nom: 'Formateur Principal',
-    titre: 'Formateur certifié — Niveaux A1 à C1',
+    nom: 'Melissa Kouamé',
+    titre: 'Co-Fondatrice & Responsable Immigration',
+    role: 'Immigration & Études',
+    bio: 'Spécialiste des dossiers d\'immigration pour les études, Melissa accompagne chaque apprenant dans ses démarches administratives et l\'obtention de visa étudiant.',
+    photo: '/teams/Melissa%20Kouamen.jpg',
+    linkedin: '#', facebook: '#', instagram: '#', tiktok: null, email: 'contact@visumplusakademie.com',
+  },
+  {
+    nom: 'Gabin Kouamen',
+    titre: 'Co-Fondateur & Responsable Mobilité Internationale',
+    role: 'Mobilité & Coopération',
+    bio: 'Gabin pilote les partenariats internationaux et la coopération avec les entreprises et institutions allemandes, facilitant l\'accès à l\'Ausbildung pour nos apprenants.',
+    photo: '/teams/Gabin%20Kouamen.jpg',
+    linkedin: '#', facebook: '#', instagram: null, tiktok: null, email: 'contact@visumplusakademie.com',
+  },
+  {
+    nom: 'Jeff Alain Debrazos Mbem',
+    titre: 'Enseignant Principal d\'Allemand',
     role: 'Pédagogie',
-    bio: 'Certifié Goethe-Institut, notre formateur principal accompagne les apprenants de tous niveaux avec une méthode communicative et immersive, axée sur la pratique orale et écrite.',
-    photo: null,
-    linkedin: '#',
-    facebook: '#',
-    instagram: null,
-    email: 'formation@visumplusakademie.com',
+    bio: '8 ans d\'expérience dans l\'enseignement de l\'allemand, du niveau A1 au C1. Sa méthode immersive et communicative est le cœur de la réussite pédagogique de Visum+ Akademie.',
+    photo: '/teams/Jeff%20Alain%20debrazos%20mbem.jpg',
+    linkedin: '#', facebook: '#', instagram: null, tiktok: null, email: 'formation@visumplusakademie.com',
   },
   {
-    nom: 'Coordinatrice Pédagogique',
-    titre: 'Coordination & Suivi des apprenants',
+    nom: 'Mbassi François Xavier',
+    titre: 'Enseignant d\'Allemand',
+    role: 'Pédagogie',
+    bio: '5 ans d\'expérience dans l\'enseignement de l\'allemand tous niveaux (A1 → C1). Passionné par la transmission et la progression des apprenants.',
+    photo: '/teams/Mbassi%20Fran%C3%A7ois%20Xavier.jpeg',
+    linkedin: '#', facebook: '#', instagram: null, tiktok: null, email: 'formation@visumplusakademie.com',
+  },
+  {
+    nom: 'Magne Lydienne',
+    titre: 'Secrétaire de Direction',
     role: 'Administration',
-    bio: 'Responsable du suivi individuel de chaque apprenant, elle veille à la qualité des parcours de formation et assure le lien entre les apprenants, les formateurs et les partenaires.',
-    photo: null,
-    linkedin: '#',
-    facebook: '#',
-    instagram: '#',
-    email: 'contact@visumplusakademie.com',
+    bio: 'Cheville ouvrière de l\'administration, Lydienne assure le bon fonctionnement quotidien du centre et est le premier point de contact pour les apprenants et partenaires.',
+    photo: '/teams/Magne%20Lydienne.jpg',
+    linkedin: '#', facebook: '#', instagram: '#', tiktok: null, email: 'contact@visumplusakademie.com',
   },
 ]
 
@@ -130,19 +153,29 @@ export default async function HomePage() {
       <section className="bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F3460] text-white py-24 px-4">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4">
               Apprenez l&apos;allemand avec <span className="text-[#5ECFCF]">Visum+Akademie</span>
             </h1>
-            <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              Du niveau A1 au C1, nos formateurs natifs vous accompagnent vers la maîtrise de la langue allemande. Préparez vos certifications Goethe, TELC et ÖSD avec confiance.
+            <p className="text-gray-300 text-base mb-8 leading-relaxed">
+              A1 → C1 · Formateurs certifiés · Goethe, TELC, ÖSD, ECL
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/formations" className="btn-primary">Offre de formations</Link>
               <Link href="/formations-professionnelles" className="btn-outline-white">Formations en Allemagne</Link>
             </div>
           </div>
-          <div className="hidden md:flex justify-center">
-            <Image src="/logo-nobg.png" alt="Visum Akademie" width={400} height={280} className="object-contain drop-shadow-2xl" />
+          <div className="hidden md:block relative h-80 rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80"
+              alt="Cours d'allemand Visum Akademie"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#1A1A2E]/50" />
+            <div className="absolute bottom-4 left-4">
+              <span className="badge bg-[#E8001C] text-white text-xs px-3 py-1.5">🇩🇪 Certifié Goethe · TELC · ÖSD</span>
+            </div>
           </div>
         </div>
       </section>
@@ -236,8 +269,13 @@ export default async function HomePage() {
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-10 items-center">
             <Reveal animation="fade-right" className="md:col-span-1 flex flex-col items-center text-center">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#E8001C] to-[#5ECFCF] flex items-center justify-center mb-4">
-                <GraduationCap size={52} className="text-white" />
+              <div className="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-[#E8001C]/30 mb-4">
+                <Image
+                  src="/teams/Boris%20Kouamen.jpg"
+                  alt="Boris Kouamen Nwandji"
+                  fill
+                  className="object-cover object-top"
+                />
               </div>
               <div className="font-bold text-lg text-white">Boris Kouamen Nwandji</div>
               <div className="text-[#5ECFCF] text-sm mt-1">Co-Fondateur & CEO</div>
@@ -447,6 +485,12 @@ export default async function HomePage() {
                       <a href={membre.instagram} target="_blank" rel="noopener noreferrer"
                         className="w-8 h-8 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-500 hover:bg-pink-500 hover:text-white transition-colors">
                         <IconInstagram />
+                      </a>
+                    )}
+                    {membre.tiktok && (
+                      <a href={membre.tiktok} target="_blank" rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-gray-900/10 flex items-center justify-center text-gray-800 hover:bg-gray-900 hover:text-white transition-colors">
+                        <IconTikTok />
                       </a>
                     )}
                     {membre.email && (

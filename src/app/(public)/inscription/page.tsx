@@ -85,10 +85,8 @@ function InscriptionForm() {
   return (
     <>
       <section className="bg-[#1A1A2E] text-white py-16 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4">Inscription</h1>
-        <p className="text-gray-300 max-w-xl mx-auto">
-          Remplissez ce formulaire pour vous inscrire à une formation. Notre équipe vous recontactera rapidement.
-        </p>
+        <h1 className="text-4xl font-bold mb-3">Inscription</h1>
+        <p className="text-gray-400 max-w-lg mx-auto text-sm">Remplissez le formulaire — notre équipe vous recontacte rapidement.</p>
       </section>
 
       <section className="py-16 max-w-2xl mx-auto px-4">

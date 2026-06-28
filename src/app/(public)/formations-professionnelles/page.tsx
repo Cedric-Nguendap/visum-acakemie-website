@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import {
   CheckCircle, ArrowRight, Star, Clock, Shield, Plane, BookOpen,
@@ -149,19 +150,45 @@ export default function FormationsProfessionnellesPage() {
     <>
       {/* ── HERO ── */}
       <section className="bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F3460] text-white py-24 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-            Formez-vous en Allemagne,<br />
-            <span className="text-[#5ECFCF]">soyez payé dès le 1er jour</span>
-          </h1>
-          <p className="text-gray-300 text-lg mb-10 max-w-3xl mx-auto leading-relaxed">
-            L&apos;Ausbildung est le système de formation professionnelle allemand reconnu mondialement. Vous travaillez en entreprise, vous êtes rémunéré, et vous obtenez un diplôme qui ouvre les portes de toute l&apos;Europe.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/inscription" className="btn-primary px-8 py-3 text-base">Démarrer mon parcours</Link>
-            <Link href="/contact" className="btn-outline-white px-8 py-3 text-base">Parler à un conseiller</Link>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            {/* Texte */}
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+                Formez-vous en Allemagne,<br />
+                <span className="text-[#5ECFCF]">payé dès le 1er mois</span>
+              </h1>
+              <p className="text-gray-300 text-base mb-8 leading-relaxed">
+                L&apos;Ausbildung : travail en entreprise, salaire dès le départ, diplôme reconnu dans toute l&apos;Europe.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/inscription" className="btn-primary px-8 py-3 text-base">Démarrer mon parcours</Link>
+                <Link href="/contact" className="btn-outline-white px-8 py-3 text-base">Parler à un conseiller</Link>
+              </div>
+            </div>
+            {/* Image */}
+            <div className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                alt="Étudiant en formation professionnelle en Allemagne"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3">
+                  <div className="w-8 h-8 bg-[#5ECFCF] rounded-full flex items-center justify-center text-[#1A1A2E] font-black text-sm">✓</div>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Formation rémunérée dès J+1</p>
+                    <p className="text-gray-300 text-xs">600 – 1 400 € / mois en entreprise</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-10 border-t border-white/10">
+          {/* Chiffres clés */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-white/10">
             {[
               { value: '1 – 3 ans', label: 'Durée de formation' },
               { value: '600 – 1 400 €', label: 'Salaire mensuel' },

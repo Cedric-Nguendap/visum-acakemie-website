@@ -79,10 +79,8 @@ export default function GaleriePage() {
     <>
       {/* HERO */}
       <section className="bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F3460] text-white py-16 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Notre Galerie</h1>
-        <p className="text-gray-300 max-w-xl mx-auto text-lg">
-          Photos et vidéos de nos cours, événements, examens et de la vie de nos apprenants en Allemagne.
-        </p>
+        <h1 className="text-4xl md:text-5xl font-bold mb-3">Notre Galerie</h1>
+        <p className="text-gray-400 max-w-lg mx-auto text-sm">Cours · Événements · Examens · Vie en Allemagne</p>
       </section>
 
       <section className="py-12 max-w-7xl mx-auto px-4">

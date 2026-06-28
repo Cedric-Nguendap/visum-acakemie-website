@@ -44,8 +44,8 @@ export default function ContactPage() {
   return (
     <>
       <section className="bg-[#1A1A2E] text-white py-16 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4">Contactez-nous</h1>
-        <p className="text-gray-300 max-w-xl mx-auto">Notre équipe est disponible pour répondre à toutes vos questions.</p>
+        <h1 className="text-4xl font-bold mb-3">Contactez-nous</h1>
+        <p className="text-gray-400 max-w-lg mx-auto text-sm">Notre équipe vous répond rapidement.</p>
       </section>
 
       <section className="py-16 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12">

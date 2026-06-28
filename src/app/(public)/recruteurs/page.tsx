@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Building2, Users, GraduationCap, Globe, CheckCircle, Loader2, Briefcase, Award, ArrowRight, Mail } from 'lucide-react'
 import Reveal from '@/components/Reveal'
 
@@ -61,30 +62,40 @@ export default function RecruteursPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             {/* <span className="badge bg-[#5ECFCF]/20 text-[#5ECFCF] mb-5 inline-block px-4 py-1.5 text-sm">🇩🇪 Espace Recruteurs Allemands</span> */}
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
               Trouvez vos futurs collaborateurs<br />
               <span className="text-[#5ECFCF]">formés en allemand au Cameroun</span>
             </h1>
-            <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              Visum+ Akademie forme chaque année des candidats africains motivés, certifiés en langue allemande et prêts à s&apos;intégrer dans le monde du travail en Allemagne, Autriche et Suisse.
+            <p className="text-gray-300 text-base mb-8 leading-relaxed">
+              Des candidats certifiés B1–C1, motivés et prêts à s&apos;intégrer en entreprise en Allemagne, Autriche et Suisse.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#formulaire" className="btn-primary">Nous contacter</a>
               <Link href="/formations" className="btn-outline-white">Voir nos formations</Link>
             </div>
           </div>
-          <div className="hidden md:grid grid-cols-2 gap-4">
-            {[
-              { value: 'B1 – C1', label: 'Niveaux disponibles' },
-              { value: '94%', label: 'Taux de réussite aux certifications' },
-              { value: '300+', label: 'Métiers en Ausbildung' },
-              { value: '0 €', label: 'Frais de mise en relation' },
-            ].map(s => (
-              <div key={s.label} className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-                <div className="text-3xl font-black text-[#5ECFCF] mb-2">{s.value}</div>
-                <div className="text-gray-400 text-sm">{s.label}</div>
-              </div>
-            ))}
+          <div className="hidden md:block relative h-80 rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+              alt="Recruteur et candidat en entretien professionnel"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/70 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-4 grid grid-cols-2 gap-3">
+              {[
+                { value: 'B1 – C1', label: 'Niveaux certifiés' },
+                { value: '94%', label: 'Taux de réussite' },
+                { value: '300+', label: 'Métiers disponibles' },
+                { value: '0 €', label: 'Mise en relation' },
+              ].map(s => (
+                <div key={s.label} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-3 py-2 text-center">
+                  <div className="text-lg font-black text-[#5ECFCF]">{s.value}</div>
+                  <div className="text-gray-300 text-xs">{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

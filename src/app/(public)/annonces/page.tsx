@@ -30,8 +30,8 @@ export default async function AnnoncesPage({ searchParams }: { searchParams: { c
   return (
     <>
       <section className="bg-[#1A1A2E] text-white py-16 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4">Annonces</h1>
-        <p className="text-gray-300 max-w-xl mx-auto">Actualités, événements, offres et résultats de Visum Akademie.</p>
+        <h1 className="text-4xl font-bold mb-3">Annonces</h1>
+        <p className="text-gray-400 max-w-lg mx-auto text-sm">Actualités · Événements · Résultats d&apos;examens · Offres spéciales</p>
       </section>
 
       <section className="py-10 max-w-7xl mx-auto px-4">
