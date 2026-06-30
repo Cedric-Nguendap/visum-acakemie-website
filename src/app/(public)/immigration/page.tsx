@@ -358,7 +358,8 @@ export default function FormationsProfessionnellesPage() {
             </div>
           </Reveal>
           <Reveal animation="zoom" delay={100}>
-            <div className="rounded-2xl shadow-lg overflow-hidden">
+            {/* Desktop : tableau */}
+            <div className="hidden md:block rounded-2xl shadow-lg overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
                   <tr>
@@ -409,6 +410,51 @@ export default function FormationsProfessionnellesPage() {
                   </tr>
                 </tfoot>
               </table>
+            </div>
+
+            {/* Mobile : cartes empilées */}
+            <div className="md:hidden space-y-3">
+              {/* Header mobile */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-[#E8001C] rounded-2xl p-4 text-white text-center">
+                  <div className="text-2xl mb-1">🇩🇪</div>
+                  <div className="font-bold text-sm">Ausbildung</div>
+                  <div className="text-red-200 text-xs">Formation pro</div>
+                </div>
+                <div className="bg-[#1A1A2E] rounded-2xl p-4 text-white text-center">
+                  <div className="text-2xl mb-1">🎓</div>
+                  <div className="font-semibold text-sm">Études univ.</div>
+                  <div className="text-gray-400 text-xs">Classique</div>
+                </div>
+              </div>
+              {/* Lignes */}
+              {[
+                ['Rémunération', '✅ Dès le 1er mois', '❌ Frais de scolarité'],
+                ['Durée', '1 à 3 ans', '3 à 5 ans'],
+                ['Niveau allemand', 'B1 / B2', 'B2 minimum'],
+                ['Visa', 'Visa Ausbildung', 'Visa étudiant'],
+                ['Titre de séjour', '✅ Après 2 ans', '✅ Après études'],
+                ['Insertion pro', '✅ Quasi immédiate', '⏳ Variable'],
+                ['Diplôme', '✅ UE + international', '✅ UE + international'],
+              ].map(([critere, ausbildung, etudes], i) => (
+                <div key={critere} className={`rounded-xl overflow-hidden ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                  <div className="px-4 py-2 bg-[#1A1A2E]/5 text-xs font-bold text-[#1A1A2E] uppercase tracking-wide">
+                    {critere}
+                  </div>
+                  <div className="grid grid-cols-2 divide-x divide-gray-100">
+                    <div className="px-4 py-3 text-sm font-semibold text-green-700 bg-green-50/60 text-center">
+                      {ausbildung}
+                    </div>
+                    <div className="px-4 py-3 text-sm text-gray-400 text-center">
+                      {etudes}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* CTA mobile */}
+              <Link href="/inscription" className="btn-primary w-full text-center block py-3 text-sm mt-2">
+                Démarrer mon Ausbildung →
+              </Link>
             </div>
           </Reveal>
         </div>

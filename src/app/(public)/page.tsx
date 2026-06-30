@@ -100,6 +100,14 @@ const equipe = [
     linkedin: '#', facebook: '#', instagram: '#', tiktok: 'https://www.tiktok.com/@visum.akademie', email: 'boris@visumplusakademie.com',
   },
   {
+    nom: 'Nwandji Evelyne',
+    titre: 'Chief Operating Officer (COO)',
+    role: 'Direction',
+    bio: 'Evelyne supervise les opérations quotidiennes de Visum+ Akademie, coordonne les équipes et veille à l\'excellence de l\'expérience apprenant à chaque étape du parcours.',
+    photo: '/teams/Nwandji%20Evelyne.jpg',
+    linkedin: '#', facebook: '#', instagram: '#', tiktok: null, email: 'contact@visumplusakademie.com',
+  },
+  {
     nom: 'Datang Nwandji Mélissa',
     titre: 'Co-Fondatrice & Responsable Immigration',
     role: 'Immigration & Études',
@@ -114,6 +122,14 @@ const equipe = [
     bio: 'Gabin pilote les partenariats internationaux et la coopération avec les entreprises et institutions allemandes, facilitant l\'accès à l\'Ausbildung pour nos apprenants.',
     photo: '/teams/Gabin%20Kouamen.jpg',
     linkedin: '#', facebook: '#', instagram: null, tiktok: null, email: 'contact@visumplusakademie.com',
+  },  
+  {
+    nom: 'Magne Lydienne',
+    titre: 'Secrétaire de Direction',
+    role: 'Administration',
+    bio: 'Cheville ouvrière de l\'administration, Lydienne assure le bon fonctionnement quotidien du centre et est le premier point de contact pour les apprenants et partenaires.',
+    photo: '/teams/Magne%20Lydienne.jpg',
+    linkedin: '#', facebook: '#', instagram: '#', tiktok: null, email: 'contact@visumplusakademie.com',
   },
   {
     nom: 'Jeff Alain Debrazos Mbem',
@@ -130,15 +146,7 @@ const equipe = [
     bio: '5 ans d\'expérience dans l\'enseignement de l\'allemand tous niveaux (A1 → C1). Passionné par la transmission et la progression des apprenants.',
     photo: '/teams/Mbassi%20Fran%C3%A7ois%20Xavier.jpeg',
     linkedin: '#', facebook: '#', instagram: null, tiktok: null, email: 'formation@visumplusakademie.com',
-  },
-  {
-    nom: 'Magne Lydienne',
-    titre: 'Secrétaire de Direction',
-    role: 'Administration',
-    bio: 'Cheville ouvrière de l\'administration, Lydienne assure le bon fonctionnement quotidien du centre et est le premier point de contact pour les apprenants et partenaires.',
-    photo: '/teams/Magne%20Lydienne.jpg',
-    linkedin: '#', facebook: '#', instagram: '#', tiktok: null, email: 'contact@visumplusakademie.com',
-  },
+  }
 ]
 
 export default async function HomePage() {
