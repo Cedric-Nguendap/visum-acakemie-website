@@ -5,7 +5,8 @@ import {
   CheckCircle, ArrowRight, Star, Clock, Shield, Plane, BookOpen,
   Stethoscope, Wrench, ChefHat, Baby, Leaf,
   Building2, Cpu, Scissors, AlertCircle, FileText,
-  Banknote, Home, Users, GraduationCap, Award
+  Banknote, Home, Users, GraduationCap, Award,
+  Landmark, Globe, Briefcase, CalendarCheck
 } from 'lucide-react'
 import Reveal from '@/components/Reveal'
 
@@ -348,6 +349,120 @@ export default function FormationsProfessionnellesPage() {
         </div>
       </section>
 
+      {/* ── ÉTUDES UNIVERSITAIRES EN ALLEMAGNE ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <Reveal animation="fade-up">
+            <div className="text-center mb-14">
+              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
+                <GraduationCap size={16} />Voie universitaire
+              </div>
+              <h2 className="section-title">Étudier en Allemagne</h2>
+              <p className="section-subtitle">
+                L&apos;Allemagne propose des universités publiques de rang mondial, majoritairement <strong>gratuites ou à frais très réduits</strong>. Une alternative sérieuse pour ceux qui visent un diplôme de Licence, Master ou Doctorat.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Atouts études */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+            {([
+              { Icon: Landmark,     color: 'bg-blue-500',   titre: 'Universités publiques gratuites',  desc: 'Frais de scolarité quasi nuls dans la plupart des Länder (0 – 500 €/semestre)' },
+              { Icon: Globe,        color: 'bg-teal-500',   titre: 'Diplômes reconnus mondialement',   desc: "Bachelor, Master, Doctorat reconnus dans toute l'UE et à l'international" },
+              { Icon: Briefcase,    color: 'bg-orange-500', titre: 'Droit de travailler',              desc: "120 jours/an d'emploi autorisé pendant les études, salaire étudiant possible" },
+              { Icon: CalendarCheck,color: 'bg-purple-500', titre: 'Résidence après études',           desc: "18 mois de droit au séjour pour chercher un emploi après l'obtention du diplôme" },
+            ] as const).map(({ Icon, color, titre, desc }, i) => (
+              <Reveal key={titre} animation="fade-up" delay={i * 80} className="bg-[#F5F5F5] rounded-2xl p-5">
+                <div className={`${color} w-12 h-12 rounded-xl flex items-center justify-center mb-4`}>
+                  <Icon size={22} className="text-white" />
+                </div>
+                <h3 className="font-bold text-[#1A1A2E] text-sm mb-2">{titre}</h3>
+                <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Conditions + Processus côte à côte */}
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            {/* Conditions */}
+            <Reveal animation="fade-right">
+              <div className="bg-[#F5F5F5] rounded-2xl p-7">
+                <h3 className="font-bold text-[#1A1A2E] text-lg mb-5 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center shrink-0">
+                    <FileText size={16} className="text-white" />
+                  </div>
+                  Conditions d&apos;admission
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    { label: 'Niveau d\'allemand', note: 'C1 minimum (DSH ou TestDaF)', color: 'bg-blue-500' },
+                    { label: 'Baccalauréat reconnu', note: 'ou équivalence via uni-assist', color: 'bg-teal-500' },
+                    { label: 'Dossier académique', note: 'relevés de notes, lettres de motivation', color: 'bg-purple-500' },
+                    { label: 'Passeport valide', note: '+ photo biométrique', color: 'bg-orange-500' },
+                    { label: 'Preuve de financement', note: '11 208 € sur compte bloqué (2025)', color: 'bg-green-500' },
+                    { label: 'Assurance maladie', note: 'obligatoire avant inscription', color: 'bg-red-500' },
+                  ].map(item => (
+                    <div key={item.label} className="bg-white rounded-xl px-4 py-3 flex items-center gap-3">
+                      <div className={`${item.color} w-2 h-2 rounded-full shrink-0`} />
+                      <div>
+                        <span className="text-sm font-semibold text-[#1A1A2E]">{item.label}</span>
+                        <span className="text-gray-400 text-xs block">{item.note}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Processus */}
+            <Reveal animation="fade-left" delay={100}>
+              <div className="bg-[#1A1A2E] rounded-2xl p-7 text-white">
+                <h3 className="font-bold text-[#5ECFCF] text-lg mb-5 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-[#5ECFCF]/20 rounded-lg flex items-center justify-center shrink-0">
+                    <ArrowRight size={16} className="text-[#5ECFCF]" />
+                  </div>
+                  Parcours en 5 étapes
+                </h3>
+                <div className="space-y-4">
+                  {[
+                    { num: '01', titre: 'Atteindre le niveau C1', desc: 'Se préparer au DSH ou TestDaF avec Visum+ Akademie', color: 'bg-[#E8001C]' },
+                    { num: '02', titre: 'Choisir son université', desc: 'Rechercher via uni-assist ou directement les universités allemandes', color: 'bg-blue-500' },
+                    { num: '03', titre: 'Soumettre son dossier', desc: 'Diplômes traduits et apostillés, lettre de motivation, CV', color: 'bg-orange-500' },
+                    { num: '04', titre: 'Ouvrir le compte bloqué', note: '11 208 € via Fintiba, Coracle ou banque allemande', color: 'bg-purple-500' },
+                    { num: '05', titre: 'Demander le visa étudiant', desc: 'Déposer à l\'ambassade d\'Allemagne — délai 4 à 12 semaines', color: 'bg-teal-500' },
+                  ].map(e => (
+                    <div key={e.num} className="flex items-start gap-4">
+                      <div className={`${e.color} w-8 h-8 rounded-lg flex items-center justify-center font-black text-white text-xs shrink-0 mt-0.5`}>{e.num}</div>
+                      <div>
+                        <p className="font-semibold text-white text-sm">{e.titre}</p>
+                        <p className="text-gray-400 text-xs mt-0.5">{e.desc ?? e.note}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Note d'info */}
+          <Reveal animation="fade-up" delay={100}>
+            <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6 flex items-start gap-4">
+              <AlertCircle size={22} className="text-blue-600 shrink-0 mt-0.5" />
+              <div>
+                <h4 className="font-bold text-[#1A1A2E] mb-1">Le niveau C1 est indispensable pour les études universitaires</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  La plupart des universités allemandes exigent le DSH-2 ou le TestDaF 4×4 (équivalent C1). Visum+ Akademie vous accompagne de A1 jusqu&apos;au C1 pour vous préparer à ces certifications et maximiser vos chances d&apos;admission.
+                </p>
+                <Link href="/formations" className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm mt-3 hover:underline">
+                  Commencer la préparation C1 <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      
       {/* ── COMPARATIF ── */}
       <section className="py-20 bg-[#F5F5F5]">
         <div className="max-w-5xl mx-auto px-4">
