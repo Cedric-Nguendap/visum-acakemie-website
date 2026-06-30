@@ -154,20 +154,43 @@ export default function NiveauxPage() {
 
           <Reveal animation="fade-left" delay={150}>
             <div className="bg-[#1A1A2E] text-white rounded-2xl p-8">
-              <h3 className="font-bold text-[#5ECFCF] mb-5 text-lg">Certifications visées par niveau</h3>
-              <div className="space-y-3">
+              <h3 className="font-bold text-[#5ECFCF] mb-6 text-lg">Certifications visées par niveau</h3>
+              <div className="space-y-5">
                 {[
-                  { niveau: 'A1 – A2', cert: 'Goethe Start Deutsch', couleur: 'bg-green-500' },
-                  { niveau: 'B1',      cert: 'Goethe-Zertifikat B1 / TELC B1', couleur: 'bg-blue-500' },
-                  { niveau: 'B2',      cert: 'Goethe-Zertifikat B2 / TELC B2', couleur: 'bg-orange-500' },
-                  { niveau: 'C1',      cert: 'Goethe C1 / TELC C1 / ÖSD C1', couleur: 'bg-red-500' },
+                  {
+                    niveau: 'A1 – A2', couleur: 'bg-green-500',
+                    certs: ['Goethe Start Deutsch 1 & 2', 'TELC Deutsch A1 / A2', 'ÖSD Zertifikat A1 / A2'],
+                  },
+                  {
+                    niveau: 'B1', couleur: 'bg-blue-500',
+                    certs: ['Goethe-Zertifikat B1', 'TELC Deutsch B1', 'ÖSD Zertifikat B1', 'ECL B1'],
+                  },
+                  {
+                    niveau: 'B2', couleur: 'bg-orange-500',
+                    certs: ['Goethe-Zertifikat B2', 'TELC Deutsch B2', 'ÖSD Zertifikat B2', 'ECL B2'],
+                  },
+                  {
+                    niveau: 'C1', couleur: 'bg-red-500',
+                    certs: ['Goethe-Zertifikat C1', 'TELC Deutsch C1', 'ÖSD Zertifikat C1', 'ECL C1'],
+                  },
                 ].map(r => (
-                  <div key={r.niveau} className="flex items-center gap-3">
-                    <span className={`${r.couleur} text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 w-14 text-center`}>{r.niveau}</span>
-                    <span className="text-gray-300 text-sm">{r.cert}</span>
+                  <div key={r.niveau} className="flex items-start gap-3">
+                    <span className={`${r.couleur} text-white text-xs font-bold px-2.5 py-1.5 rounded-lg shrink-0 w-14 text-center mt-0.5`}>
+                      {r.niveau}
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {r.certs.map(c => (
+                        <span key={c} className="bg-white/10 text-gray-300 text-xs px-2.5 py-1 rounded-lg border border-white/10">
+                          {c}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
+              <p className="text-gray-500 text-xs mt-6 border-t border-white/10 pt-4">
+                Visum+ Akademie prépare aux 4 certifications : Goethe · TELC · ÖSD · ECL
+              </p>
             </div>
           </Reveal>
         </div>

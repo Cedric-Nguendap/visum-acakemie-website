@@ -17,9 +17,9 @@ export const metadata: Metadata = {
 const avantages = [
   { icon: Banknote, titre: 'Formation rémunérée',            valeur: '600 – 1 200 €/mois',  color: 'bg-green-500' },
   { icon: Award,    titre: 'Diplôme reconnu UE',             valeur: 'Berufsabschluss',     color: 'bg-blue-500' },
-  { icon: Home,     titre: 'Résidence permanente',           valeur: 'Après 2 ans',          color: 'bg-purple-500' },
-  { icon: Shield,   titre: 'Protection sociale',             valeur: 'Complète dès J+1',     color: 'bg-orange-500' },
-  { icon: Plane,    titre: 'Visa facilité',                  valeur: 'Visa Ausbildung',      color: 'bg-[#5ECFCF]' },
+  { icon: Home,     titre: 'Titre de séjour permanent',           valeur: '2 à 5 ans aprés formation',          color: 'bg-purple-500' },
+  { icon: Shield,   titre: 'Avantages sociaux',             valeur: 'Complète dès M+1',     color: 'bg-orange-500' },
+  { icon: Plane,    titre: 'Démarches clair et assisté ',                  valeur: 'Visa Ausbildung',      color: 'bg-[#5ECFCF]' },
   { icon: Star,     titre: 'Évolution rapide',               valeur: 'Meister · Études sup.', color: 'bg-[#E8001C]' },
 ]
 
@@ -104,7 +104,7 @@ const criteres = [
     icon: GraduationCap, titre: 'Niveau scolaire', color: 'bg-blue-500',
     items: [
       { label: 'Baccalauréat', note: 'minimum' },
-      { label: 'BEP / CAP', note: 'certains métiers techniques' },
+      { label: 'BEPC / CAP', note: 'certains métiers techniques' },
       { label: 'Licence', note: 'filières santé avancées' },
     ],
   },
@@ -113,7 +113,7 @@ const criteres = [
     items: [
       { label: 'B1 minimum', note: 'pour la plupart des formations' },
       { label: 'B2 recommandé', note: 'santé & social' },
-      { label: 'Certification', note: 'Goethe · TELC · ÖSD exigée' },
+      { label: 'Certification', note: 'Goethe · TELC · ÖSD · ECL exigée' },
     ],
   },
   {
@@ -159,7 +159,7 @@ export default function FormationsProfessionnellesPage() {
                 <span className="text-[#5ECFCF]">payé dès le 1er mois</span>
               </h1>
               <p className="text-gray-300 text-base mb-8 leading-relaxed">
-                L&apos;Ausbildung : travail en entreprise, salaire dès le départ, diplôme reconnu dans toute l&apos;Europe.
+                La Ausbildung : travail en entreprise, salaire dès le départ, diplôme reconnu dans toute l&apos;Europe.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/inscription" className="btn-primary px-8 py-3 text-base">Démarrer mon parcours</Link>
@@ -169,7 +169,8 @@ export default function FormationsProfessionnellesPage() {
             {/* Image */}
             <div className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                // src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                src="https://images.unsplash.com/photo-1573164574511-73c773193279?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Étudiant en formation professionnelle en Allemagne"
                 fill
                 className="object-cover"
@@ -180,7 +181,7 @@ export default function FormationsProfessionnellesPage() {
                 <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3">
                   <div className="w-8 h-8 bg-[#5ECFCF] rounded-full flex items-center justify-center text-[#1A1A2E] font-black text-sm">✓</div>
                   <div>
-                    <p className="text-white font-semibold text-sm">Formation rémunérée dès J+1</p>
+                    <p className="text-white font-semibold text-sm">Formation rémunérée dès M+1</p>
                     <p className="text-gray-300 text-xs">600 – 1 400 € / mois en entreprise</p>
                   </div>
                 </div>
@@ -209,8 +210,8 @@ export default function FormationsProfessionnellesPage() {
         <div className="max-w-7xl mx-auto px-4">
           <Reveal animation="fade-up">
             <div className="text-center mb-14">
-              <h2 className="section-title">Pourquoi choisir l&apos;Ausbildung ?</h2>
-              <p className="section-subtitle">Un système unique au monde qui combine travail, formation et rémunération dès le premier jour.</p>
+              <h2 className="section-title">Pourquoi choisir la Ausbildung ?</h2>
+              <p className="section-subtitle">Un système unique au monde qui combine travail, formation et rémunération dès le premier mois.</p>
             </div>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -305,7 +306,7 @@ export default function FormationsProfessionnellesPage() {
               <div>
                 <h4 className="font-bold text-[#1A1A2E] mb-1">Le niveau d&apos;allemand est la clé</h4>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Sans un niveau B1 minimum certifié, votre dossier ne sera pas retenu par les employeurs allemands. C&apos;est pourquoi Visum Akademie vous prépare spécifiquement aux certifications officielles (Goethe, TELC) avant de vous accompagner dans vos démarches d&apos;Ausbildung.
+                  Sans un niveau B1 minimum certifié, votre dossier ne sera pas retenu par les employeurs allemands. C&apos;est pourquoi Visum+ Akademie vous prépare spécifiquement aux certifications officielles (Goethe, TELC, ÖSD, ECL) avant de vous accompagner dans vos démarches d&apos;Ausbildung.
                 </p>
                 <Link href="/formations" className="inline-flex items-center gap-2 text-[#E8001C] font-semibold text-sm mt-3 hover:underline">
                   Voir nos cours d&apos;allemand <ArrowRight size={14} />
@@ -357,32 +358,56 @@ export default function FormationsProfessionnellesPage() {
             </div>
           </Reveal>
           <Reveal animation="zoom" delay={100}>
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+            <div className="rounded-2xl shadow-lg overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-[#1A1A2E] text-white">
-                    <th className="text-left px-6 py-4 font-semibold">Critère</th>
-                    <th className="text-center px-6 py-4 font-semibold text-[#5ECFCF]">Ausbildung 🇩🇪</th>
-                    <th className="text-center px-6 py-4 font-semibold text-gray-400">Études universitaires</th>
+                  <tr>
+                    <th className="bg-[#1A1A2E] text-left px-6 py-5 font-semibold text-gray-400 w-1/3">Critère</th>
+                    <th className="bg-[#E8001C] text-center px-6 py-5 font-bold text-white">
+                      <div className="flex flex-col items-center gap-1">
+                        <span className="text-2xl">🇩🇪</span>
+                        <span className="text-base">Ausbildung</span>
+                        <span className="text-red-200 text-xs font-normal">Formation professionnelle</span>
+                      </div>
+                    </th>
+                    <th className="bg-[#1A1A2E] text-center px-6 py-5 font-semibold text-gray-400">
+                      <div className="flex flex-col items-center gap-1">
+                        <span className="text-2xl">🎓</span>
+                        <span>Études universitaires</span>
+                      </div>
+                    </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100">
+                <tbody>
                   {[
-                    ['Rémunération', '✅ Oui, dès le 1er jour', '❌ Non (frais de scolarité)'],
+                    ['Rémunération', '✅ Oui, dès le 1er mois', '❌ Non (frais de scolarité)'],
                     ['Durée', '1 à 3 ans', '3 à 5 ans'],
-                    ['Niveau allemand requis', 'B1 / B2', 'C1 minimum'],
-                    ['Visa', 'Visa Ausbildung (accessible)', 'Visa étudiant (plus strict)'],
-                    ['Résidence permanente', '✅ Après 2 ans de travail', '✅ Après études + travail'],
+                    ['Niveau allemand requis', 'B1 / B2', 'B2 minimum'],
+                    ['Visa', 'Visa Ausbildung (contrat de travail)', 'Visa étudiant (pas de contrat)'],
+                    ['Titre de séjour permanent', '✅ Après 2 ans de travail', '✅ Après études + travail'],
                     ['Insertion professionnelle', '✅ Quasi immédiate', '⏳ Variable'],
                     ['Reconnaissance diplôme', '✅ UE + international', '✅ UE + international'],
-                  ].map(([critere, ausbildung, etudes]) => (
-                    <tr key={critere} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 font-medium text-[#1A1A2E]">{critere}</td>
-                      <td className="px-6 py-4 text-center text-green-700 font-medium">{ausbildung}</td>
-                      <td className="px-6 py-4 text-center text-gray-500">{etudes}</td>
+                  ].map(([critere, ausbildung, etudes], i) => (
+                    <tr key={critere} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/80'}>
+                      <td className="px-6 py-4 font-semibold text-[#1A1A2E] border-r border-gray-100">{critere}</td>
+                      <td className="px-6 py-4 text-center font-semibold text-green-700 bg-green-50/50 border-x-2 border-[#E8001C]/15">
+                        {ausbildung}
+                      </td>
+                      <td className="px-6 py-4 text-center text-gray-400">{etudes}</td>
                     </tr>
                   ))}
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <td className="px-6 py-4 bg-gray-100" />
+                    <td className="px-6 py-5 bg-[#E8001C]/5 border-x-2 border-[#E8001C]/15 text-center">
+                      <Link href="/inscription" className="btn-primary text-xs py-2.5 px-5 inline-block">
+                        Démarrer mon Ausbildung →
+                      </Link>
+                    </td>
+                    <td className="px-6 py-4 bg-gray-100 text-center text-gray-400 text-xs">Option classique</td>
+                  </tr>
+                </tfoot>
               </table>
             </div>
           </Reveal>

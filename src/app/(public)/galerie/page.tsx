@@ -145,7 +145,13 @@ export default function GaleriePage() {
                     <div
                       className="break-inside-avoid group relative cursor-pointer rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow"
                       onClick={() => setLightbox(lightboxItems.findIndex(li => li.id === m.id))}>
-                      <NextImage src={m.url} alt={m.titre} fill className="w-full object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 50vw, 25vw" unoptimized />
+                      <img
+                        src={m.url}
+                        alt={m.titre}
+                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300 block"
+                        loading="lazy"
+                        onError={e => { (e.target as HTMLImageElement).style.display = 'none' }}
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                         <div className="absolute bottom-0 left-0 right-0 p-4">
                           <p className="text-white font-semibold text-sm">{m.titre}</p>

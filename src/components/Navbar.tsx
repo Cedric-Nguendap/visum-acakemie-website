@@ -6,7 +6,7 @@ import { Menu, X } from 'lucide-react'
 
 const links = [
   { href: '/', label: 'Accueil' },
-  { href: '/formations-professionnelles', label: 'Formations en Allemagne' },
+  { href: '/immigration', label: 'Immigration en Allemagne' },
   { href: '/formations', label: 'Cours' },
   { href: '/niveaux', label: 'Niveaux' },
   { href: '/galerie', label: 'Galerie' },

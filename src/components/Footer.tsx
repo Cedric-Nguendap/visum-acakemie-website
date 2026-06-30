@@ -82,8 +82,28 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-gray-700 py-4 text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} Visum Akademie. Tous droits réservés.
+      <div className="border-t border-gray-700 py-4 px-4">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
+          <span>© {new Date().getFullYear()} Visum+ Akademie. Tous droits réservés.</span>
+          <span className="flex items-center gap-1.5">
+            Conçu &amp; développé par{' '}
+            <a
+              href="https://www.cedricnguendap.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#5ECFCF] hover:underline font-medium"
+            >
+              Nguendap Bedjama Cédric
+            </a>
+            ·
+            {/* <a
+              href="mailto:cednguendap@gmail.com"
+              className="hover:text-[#5ECFCF] transition-colors"
+            >
+              cednguendap@gmail.com
+            </a> */}
+          </span>
+        </div>
       </div>
     </footer>
   )

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: { default: 'Visum+ Akademie', template: '%s | Visum Akademie' },
   description: 'Centre de formation allemand — tous niveaux, toutes disciplines.',
   keywords: ['formation', 'allemand', 'cours', 'certification', 'Visum Akademie'],
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

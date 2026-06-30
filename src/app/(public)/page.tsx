@@ -95,7 +95,7 @@ const equipe = [
     nom: 'Boris Kouamen Nwandji',
     titre: 'Co-Fondateur & CEO',
     role: 'Direction',
-    bio: 'Visionnaire et entrepreneur, Boris a fondé Visum+ Akademie avec la conviction que l\'allemand est un vecteur d\'opportunités exceptionnelles pour la jeunesse africaine.',
+    bio: 'Visionnaire et entrepreneur, Boris travaille et manage Visum+ Akademie avec la conviction que l\'allemand est un vecteur d\'opportunités exceptionnelles pour la jeunesse africaine en général et celle du cameroun en particulier',
     photo: '/teams/Boris%20Kouamen.jpg',
     linkedin: '#', facebook: '#', instagram: '#', tiktok: 'https://www.tiktok.com/@visum.akademie', email: 'boris@visumplusakademie.com',
   },
@@ -333,7 +333,7 @@ export default async function HomePage() {
                 { cert: 'Goethe-Zertifikat', niveaux: 'A1 → C1', desc: 'La certification allemande la plus reconnue mondialement' },
                 { cert: 'TELC Deutsch', niveaux: 'A1 → C1', desc: 'Certification européenne des langues, reconnue par les employeurs' },
                 { cert: 'ÖSD', niveaux: 'A2 → C1', desc: 'Diplôme autrichien de langue allemande' },
-                { cert: 'ECL', niveaux: 'B2 → C1', desc: 'Requis pour les études universitaires en Allemagne' },
+                { cert: 'ECL', niveaux: 'A1 → C1', desc: 'Requis pour les études universitaires en Allemagne' },
               ].map(c => (
                 <div key={c.cert} className="border border-white/10 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-1">
@@ -407,7 +407,7 @@ export default async function HomePage() {
           <Reveal animation="fade-up" delay={100}>
           <div className="bg-gradient-to-r from-[#1A1A2E] to-[#0F3460] rounded-2xl p-8 grid grid-cols-2 md:grid-cols-3 gap-6 text-white text-center">
             {[
-              { value: '2022', label: 'Année de fondation' },
+              { value: '2024', label: 'Année de fondation' },
               { value: 'Bangangté', label: 'Siège — Cameroun' },
               { value: 'A1 → C1', label: 'Niveaux couverts' },
             ].map(s => (
@@ -518,7 +518,7 @@ export default async function HomePage() {
           <Reveal animation="fade-up">
             <div className="text-center mb-12">
               <h2 className="section-title">Nos cours d&apos;allemand</h2>
-              <p className="section-subtitle">Des cours structur&eacute;s pour chaque niveau, anim&eacute;s par des formateurs natifs et certifi&eacute;s.</p>
+              <p className="section-subtitle">Des cours structur&eacute;s pour chaque niveau, anim&eacute;s par des formateurs certifi&eacute;s.</p>
             </div>
           </Reveal>
           {formations.length === 0 ? (
@@ -639,7 +639,7 @@ export default async function HomePage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Sprechen Sie Deutsch ?</h2>
           <p className="text-red-100 text-lg mb-2">Pas encore ? C&apos;est le moment de commencer !</p>
           <p className="text-red-200 text-sm mb-8 max-w-xl mx-auto">
-            Rejoignez plus de 2 000 apprenants qui ont choisi Visum Akademie pour maîtriser l&apos;allemand et décrocher leurs certifications.
+            Rejoignez plus de 200 apprenants qui ont choisi Visum+ Akademie pour maîtriser l&apos;allemand et décrocher leurs certifications.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/inscription" className="bg-white text-[#E8001C] px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
